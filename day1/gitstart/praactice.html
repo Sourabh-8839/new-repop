@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+       #form{
+        width: 20vw;
+        height: 20vh;
+        margin: 0 auto;
+        padding: 10px;
+        
+        background-color: rgb(193, 193, 196);
+       }
+        .item{
+            background-color: rgb(215, 220, 220);
+            padding:10px;
+            margin: 10px;
+            list-style: none;
+            font-size: 25px;
+
+        }
+        .head-name{
+            margin: 5px;
+        }
+        .email{
+            margin: 5px;
+        }
+        .error{
+            background-color: black;
+            color: white;
+            margin: 5px;
+            padding: 5px;
+        }
+        .ss{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="form">
+
+        <h1 id="header">Add application <span class="ss">for voterlist</span></h1>
+        <div id="msg"></div>
+        <form action="" class="my-form">
+            <div class="head-name">
+            <label for="name">
+                Name
+            </label>
+            <input type="text" id="name">
+        </div>
+        <div class="email">
+            <label for="email">Email</label>
+            <input type="email" id="email">
+        </div>
+        <input type="submit" id="btn" name="submit">
+        </form>
+    </div>
+    <ul class="items">
+    </ul>
+    <script src="practice.js">
+    </script>
+    
+</body>
+</html>
