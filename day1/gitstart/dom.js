@@ -36,7 +36,23 @@ inputbtn.value='Send';
 
 const input =document.querySelector('input');
 
-console.log(input);
+// console.log(input);
 input.placeholder='please Fill input field';
 
+
+const secondItem = document.querySelector
+('.list-group-item:nth-child(2)');
+secondItem.style.backgroundColor='#9ad19a'
+
+const thirdItem =document.querySelector('.list-group-item:nth-child(3)');
+
+thirdItem.style.display='none';
+
+
+const titles =document.querySelectorAll('.title');
+
+for (let i=0;i<titles.length;i++){
+    titles[i].style.color='cyan';
+}
+console.log(titles);
 
