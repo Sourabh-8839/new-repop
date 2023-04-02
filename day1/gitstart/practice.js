@@ -30,16 +30,22 @@ function onSubmit(e){
     else{
 
         const li =document.createElement('li');
-
+        //deletebutton
         const btn=document.createElement('button');
+        //editbutton
+        const editBtn =document.createElement('button');
+        
+        editBtn.innerHTML='Edit';
+
 
         li.appendChild(document.createTextNode(`${inputName.value} :${phone.value},`));
         li.appendChild(document.createTextNode(`${emailId.value}`))
         btn.innerHTML='Delete';
-        btn.style.margin='0px 2rem';
+        btn.style.margin='0px 1rem';
 
       
         li.appendChild(btn);
+        li.appendChild(editBtn);
         ul.appendChild(li);
 
         let myobj ={
@@ -47,7 +53,7 @@ function onSubmit(e){
             email:emailId.value,
             phone:phone.value,
         }
-
+        //delete functinality
         btn.onclick= () =>{
             if(confirm('Are you sure')){
             localStorage.removeItem(myobj.email);
@@ -55,6 +61,16 @@ function onSubmit(e){
             }
         }
         
+        //edit click function
+        editBtn.onclick=()=>{
+            localStorage.removeItem(myobj.email);
+            ul.removeChild(li);
+
+            inputName.value=myobj.name;
+            emailId.value=myobj.email;
+            phone.value =myobj.phone;
+
+        }
 
         localStorage.setItem(emailId.value,JSON.stringify(myobj));
 
