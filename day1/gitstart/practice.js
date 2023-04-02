@@ -7,6 +7,8 @@ const inputName = document.querySelector('#name');
 
 const emailId=document.querySelector('#email');
 
+const phone =document.querySelector('#phone');
+
 const ul=document.querySelector('#users');
 
 const btn=document.querySelector('.btn');
@@ -18,7 +20,7 @@ function onSubmit(e){
 
     e.preventDefault();
     
-    if(inputName.value==='' || emailId.value==='' ){
+    if(inputName.value==='' || emailId.value==='' ||phone.value ==='' ){
 
         msg.classList.add("error");
         msg.innerHTML="please fill the fields";
@@ -29,20 +31,22 @@ function onSubmit(e){
 
         const li =document.createElement('li');
 
-        li.appendChild(document.createTextNode(`${inputName.value} : ${emailId.value}`));
+        li.appendChild(document.createTextNode(`${inputName.value} :${emailId.value},${phone.value}`));
 
         ul.appendChild(li);
 
         let myobj ={
             name:inputName.value,
             email:emailId.value,
+            phone:phone.value,
         }
 
     
-        localStorage.setItem('user',JSON.stringify(myobj));
-        
+        localStorage.setItem(emailId.value,JSON.stringify(myobj));
+
         inputName.value='';
         emailId.value='';
+        phone.value ='';
 
     }
 
