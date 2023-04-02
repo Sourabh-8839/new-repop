@@ -11,7 +11,7 @@ const phone =document.querySelector('#phone');
 
 const ul=document.querySelector('#users');
 
-const btn=document.querySelector('.btn');
+
 
 
 form.addEventListener('submit',onSubmit);
@@ -31,8 +31,15 @@ function onSubmit(e){
 
         const li =document.createElement('li');
 
-        li.appendChild(document.createTextNode(`${inputName.value} :${emailId.value},${phone.value}`));
+        const btn=document.createElement('button');
 
+        li.appendChild(document.createTextNode(`${inputName.value} :${phone.value},`));
+        li.appendChild(document.createTextNode(`${emailId.value}`))
+        btn.innerHTML='Delete';
+        btn.style.margin='0px 2rem';
+
+      
+        li.appendChild(btn);
         ul.appendChild(li);
 
         let myobj ={
@@ -41,7 +48,14 @@ function onSubmit(e){
             phone:phone.value,
         }
 
-    
+        btn.onclick= () =>{
+            if(confirm('Are you sure')){
+            localStorage.removeItem(myobj.email);
+            ul.removeChild(li);
+            }
+        }
+        
+
         localStorage.setItem(emailId.value,JSON.stringify(myobj));
 
         inputName.value='';
@@ -50,26 +64,12 @@ function onSubmit(e){
 
     }
 
+    
+
 }
 
-btn.addEventListener('mouseover',(e)=>{
-
-    document.querySelector('body').style.background="cyan";
-})
-btn.addEventListener('mouseout',(e)=>{
-
-    document.querySelector('body').style.background="red";
-})
 
 
 
-let myobj2={
-    name:'sourabh',
-    age:25
-}
 
-let myobj_serialized =JSON.stringify(myobj);
 
-localStorage.setItem('obj1',myobj_serialized);
-localStorage.setItem('obj2',JSON.stringify(myobj2));
-console.log(localStorage);
