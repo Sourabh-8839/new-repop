@@ -1,5 +1,5 @@
 
-const form=document.querySelector(".my-form");
+const form=document.querySelector("#my-form");
 
 const msg=document.querySelector('#msg');
 
@@ -7,7 +7,7 @@ const inputName = document.querySelector('#name');
 
 const emailId=document.querySelector('#email');
 
-const ul=document.querySelector('.items');
+const ul=document.querySelector('#users');
 
 const btn=document.querySelector('#btn');
 
@@ -33,6 +33,7 @@ function onSubmit(e){
 
         ul.appendChild(li);
 
+        localStorage.setItem(emailId.value,inputName.value);
         inputName.value='';
         emailId.value='';
 
